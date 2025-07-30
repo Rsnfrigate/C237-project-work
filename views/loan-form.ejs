@@ -15,7 +15,7 @@
   <form action="/loan" method="POST" class="w-50">
     <div class="mb-3">
       <label class="form-label">Select Laptop</label>
-      <select name="laptop_id" class="form-select" required>
+      <select name="laptop_id" class="form-select" required
         <% laptops.forEach(l => { %>
           <option value="<%= l.id %>"><%= l.model %></option>
         <% }) %>
