@@ -16,11 +16,11 @@
     <div class="mb-3">
       <label class="form-label">Select Laptop</label>
       <select name="laptop_id" class="form-select" required>
-        <div class="laptop-preview" aria-hidden="true"></div>
         <% laptops.forEach(l => { %>
           <option value="<%= l.id %>"><%= l.model %></option>
         <% }) %>
       </select>
+      <div class="laptop-preview" aria-hidden="true"></div>
     </div>
     <div class="mb-3">
       <label class="form-label">Loan Date</label>
