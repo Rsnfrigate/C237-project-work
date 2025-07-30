@@ -21,11 +21,11 @@ app.use(session({
 
 // WEN YI & QUSYARI - MYSQL DB CONNECTION
 const db = mysql.createConnection({
-  host: '127.0.0.1',
-  port: 3306,
-  user: 'root',
-  password: 'Republic_C207',
-  database: 'rp_resource_centre'
+  host: 'mebqsc.h.filess.io',
+  port: 3307,
+  user: 'ca2project_chargemice',
+  password: '05a81242deaf40e2e22709e2c6f28311f2dc92fd',
+  database: 'ca2project_chargemice'
 });
 
 db.connect((err) => {
