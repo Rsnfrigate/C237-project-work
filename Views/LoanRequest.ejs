@@ -1,0 +1,61 @@
+<!-- dashboard.ejs -->
+<!-- WEN YI, QUSYARI & PIN HAO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Request</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="container py-4">
+  <h2 class="mb-4">Loan Request</h2>
+
+  <div class="d-flex justify-content-between mb-3">
+    
+    <form action="/searchLoanRequest" method="GET" class="d-flex">
+
+      <select name="status" class="form-select me-2">
+        <option value="pending" <%=status==='pending' ? 'selected' : '' %>>pending</option>
+        <option value="approved" <%=status==='approved' ? 'selected' : '' %>>approved</option>
+        <option value="returned" <%=status==='returned' ? 'selected' : '' %>>returned</option>
+      </select>
+      
+      <button class="btn btn-primary">Filter</button>
+
+    </form>
+    
+  </div>
+
+  <table class="table table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Laptop</th>
+        <th>Loan Date</th>
+        <th>Return Date</th>
+        <th>Status</th>
+        <% if (user.role === 'admin') { %><th>Action</th><% } %>
+        <% if (user.role === 'admin') { %><th>Edit Loan Request</th><% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% loans.forEach(loan => { %>
+        <tr>
+          <td><%= loan.id %></td>
+          <td><%= loan.model %></td>
+          <td><%= loan.loan_date.toISOString().split('T')[0] %></td>
+          <td><%= loan.return_date.toISOString().split('T')[0] %></td>
+          <td><%= loan.status %></td>
+          <% if (user.role === 'admin') { %>
+            <td><a href="/delete/<%= loan.id %>" class="btn btn-sm btn-outline-danger">Delete</a></td>
+            <td><a href="/editLoanRequest/<%= loan.id %>" class="btn btn-sm btn-outline-danger">Edit Status</a></td>
+          <% } %>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
