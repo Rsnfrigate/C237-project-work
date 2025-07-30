@@ -10,6 +10,7 @@ const app = express();
 // HAAD - UI SETUP
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ALICIA & FIONA - SESSION CONFIG
