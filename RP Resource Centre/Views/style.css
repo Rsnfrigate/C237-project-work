@@ -1,0 +1,53 @@
+/* style.css */
+/* HAAD - Frontend Styling */
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: #343a40;
+  font-weight: 600;
+}
+
+.table {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead.table-light {
+  background-color: #e9ecef;
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn {
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+form {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+input, select {
+  border-radius: 4px;
+}
+
+a.btn-link {
+  text-decoration: none;
+  color: #0d6efd;
+}
+
+a.btn-link:hover {
+  text-decoration: underline;
+}
