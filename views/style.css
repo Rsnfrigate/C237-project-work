@@ -51,3 +51,39 @@ a.btn-link {
 a.btn-link:hover {
   text-decoration: underline;
 }
+
+.laptop-preview {
+  width: 100%;
+  max-width: 420px;            
+  background: #f6f7f9 center/contain no-repeat;
+  border: 1px solid #e0e0e0;
+  border-radius: .5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  margin-top: 12px;
+}
+
+.laptop-preview::before {
+  content: "Select a laptop to preview";
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-size: .95rem;
+  color: #7a7a7a;
+}
+
+form:has(select[name="laptop_id"] option:checked) .laptop-preview::before {
+  content: "";
+}
+
+
+form:has(select[name="laptop_id"] option[value="1"]:checked) .laptop-preview {
+  background-image: url("/images/dell-laptop.jpg");
+}
+
+form:has(select[name="laptop_id"] option[value="2"]:checked) .laptop-preview {
+  background-image: url("/images/macbook-laptop.jpg");
+}
+
+form:has(select[name="laptop_id"] option[value="3"]:checked) .laptop-preview {
+  background-image: url("/images/lenovo-laptop.jpg");
+}
