@@ -54,10 +54,22 @@ app.get('/register', (req, res) => {
 
 app.post('/register', async (req, res) => {
   const { name, email, password, role } = req.body;
+
+   // Match: exactly 8 digits, then "@myrp.edu.sg"
+  const schoolEmailPattern = /^\d{8}@myrp\.edu\.sg$/;
+
+  if (!schoolEmailPattern.test(email)) {
+    return res.send('Please use a valid student or staff email (e.g., 22012345@myrp.edu.sg).');
+  }
+  // Minimum password requirement
+    if (password.length < 6) {
+      return res.send('Password must be at least 6 characters long.');
+  }
+
   const hashedPassword = await bcrypt.hash(password, 10);
   const sql = 'INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)';
   db.query(sql, [name, email, hashedPassword, role || 'student'], (err) => {
-    if (err) return res.send('Registration failed.');
+    if (err) return res.send('Registration failed');
     res.redirect('/login');
   });
 });
