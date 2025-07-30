@@ -96,3 +96,8 @@ form:has(select[name="laptop_id"] option[value="2"]:checked) .laptop-preview {
 form:has(select[name="laptop_id"] option[value="3"]:checked) .laptop-preview {
   background-image: url("/images/lenovo-laptop.jpg");
 }
+
+.laptop-preview {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
